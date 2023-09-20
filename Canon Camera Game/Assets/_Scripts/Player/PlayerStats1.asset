@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd31582d68df1a1489a712c34262d71d, type: 3}
   m_Name: PlayerStats1
   m_EditorClassIdentifier: 
-  MovementSpeed: 8
-  JumpForce: 5
-  MouseSensitivity: 2
+  WalkSpeed: 10
+  SprintSpeed: 15
+  JumpForce: 16
+  JumpCooldown: 0.3
+  CoyoteTime: 0.2
+  Gravity: -1
+  MouseSensitivity: 2000
