@@ -14,16 +14,12 @@ public class ObjectiveEvaluator : MonoBehaviour
     private ObjectIdentifier objectIdentifier;
     private List<ObjectiveObject> objectsInView;
 
-    private List<Objective> uncheckedObjectives;
-
-    private void Awake()
-    {
-        objectIdentifier = new ObjectIdentifier(photographyCamera, objectiveLayers);
-    }
-
     private void OnEnable()
     {
         EventManager.OnTakePhoto.Subscribe(TakePhoto);
+
+        objectIdentifier = gameObject.AddComponent<ObjectIdentifier>();
+        objectIdentifier.Initialise(photographyCamera, objectiveLayers);
     }
 
     private void OnDisable()
@@ -34,11 +30,19 @@ public class ObjectiveEvaluator : MonoBehaviour
     private void TakePhoto()
     {
         objectsInView = objectIdentifier.GetObjectsInCameraView();
-        uncheckedObjectives = ObjectivesManager.Instance.IncompleteObjectives;
+        List<Objective> completedObjectives = new List<Objective>();
 
-        foreach (var objective in uncheckedObjectives)
+        foreach (var objective in ObjectivesManager.Instance.IncompleteObjectives)
         {
-            CheckIfAllObjectiveRequirementsAreMet(objective);
+            if (CheckIfAllObjectiveRequirementsAreMet(objective))
+            {
+                completedObjectives.Add(objective);
+            }
+        }
+        
+        foreach (var objective in completedObjectives)
+        {
+            ObjectivesManager.Instance.IncompleteObjectives.Remove(objective);
         }
     }
 

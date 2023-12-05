@@ -2,32 +2,35 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ObjectiveObject : MonoBehaviour
 {
     public ObjectiveObjectNames Name;
-    private bool isGroundLayer;
+    [SerializeField] private bool isWalkable;
 
     private void Awake()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("ObjectiveWalkable"))
-            isGroundLayer = true;
-        else
-            isGroundLayer = false;
+        SetTagsAndLayersOfObjects(isWalkable ? "ObjectiveWalkable" : "ObjectiveNonWalkable");
+    }
 
+    private void SetTagsAndLayersOfObjects(string layerName)
+    {
+        gameObject.layer = LayerMask.NameToLayer(layerName);
         
+        if (transform.childCount == 0) return;
+
+        foreach (Transform child in transform)
+        {
+            GameObject obj;
+            (obj = child.gameObject).layer = LayerMask.NameToLayer(layerName);
+            obj.tag = "ObjectiveChildObject";
+        }
     }
 
     public void RemoveObjectiveObject()
     {
-        if (isGroundLayer)
-        {
-            gameObject.layer = LayerMask.NameToLayer("Ground");
-        }
-        else
-        {
-            gameObject.layer = LayerMask.NameToLayer("Default");
-        }
-        
+        SetTagsAndLayersOfObjects(isWalkable ? "Ground" : "Default");
+        Destroy(this);
     }
 }

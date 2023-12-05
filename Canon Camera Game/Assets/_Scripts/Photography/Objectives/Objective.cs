@@ -8,7 +8,7 @@ public class Objective
     [SerializeField, Tooltip("For displaying in UI"), TextArea(2, 4)]
     public string Description;
     [Space]
-    [SerializeField, Tooltip("You can add multiple of the same")]
+    [SerializeField]
     public List<MultiObjectiveObject> Objects;
     
     [Header("Time of Day")]
@@ -30,7 +30,8 @@ public class Objective
 public class MultiObjectiveObject
 {
     public ObjectiveObject Object;
-    [Range(1, 10)] public int Amount = 1;
+    [Range(1, 10), Tooltip("Copies of objects required")] 
+    public int Amount = 1;
 }
 
 /// <summary>

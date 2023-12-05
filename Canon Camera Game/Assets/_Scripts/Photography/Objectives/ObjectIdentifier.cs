@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectIdentifier
+public class ObjectIdentifier : MonoBehaviour
 {
     /// <summary>
     /// Can be a separate camera to the main camera.
@@ -16,7 +16,7 @@ public class ObjectIdentifier
     private List<ObjectiveObject> objectsInView;
     private List<int> foundParentsObjectIDs;
 
-    public ObjectIdentifier(Camera photographyCamera, LayerMask objectiveLayers)
+    public void Initialise(Camera photographyCamera, LayerMask objectiveLayers)
     {
         this.photographyCamera = photographyCamera;
         this.objectiveLayers = objectiveLayers;
@@ -28,7 +28,6 @@ public class ObjectIdentifier
         colliders = Physics.OverlapSphere(photographyCamera.transform.position, photographyCamera.farClipPlane, objectiveLayers);
         objectsInView = new List<ObjectiveObject>();
         foundParentsObjectIDs = new List<int>();
-        Gizmos.DrawWireSphere(photographyCamera.transform.position, photographyCamera.farClipPlane);
 
         foreach (var collider in colliders)
         {
@@ -53,4 +52,10 @@ public class ObjectIdentifier
         return objectsInView;
     }
 
+#if UNITY_EDITOR
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawWireSphere(photographyCamera.transform.position, photographyCamera.farClipPlane);
+    // }
+#endif
 }
