@@ -9,6 +9,7 @@ public class LensController : MonoBehaviour
     private Transform lensPoint;
     [SerializeField] private Camera photographyCamera;
     [SerializeField] private List<Lens> startingLenses;
+    [SerializeField] private LensUI lensUI;
 
     public Node<Lens> currentLens { get; private set; }
     private Lens currentLensPrefab;
@@ -40,6 +41,7 @@ public class LensController : MonoBehaviour
         currentLens = lensSelection.Head;
         
         ApplyCurrentLensSettings();
+        lensUI.UpdateCurrentLensUI(currentLens.Data.lensSettings.LensType);
         
         // Clear memory
         startingLenses.Clear();
@@ -54,6 +56,7 @@ public class LensController : MonoBehaviour
         else
             currentLens = currentLens.PreviousNode;
         ApplyCurrentLensSettings();
+        lensUI.UpdateCurrentLensUI(currentLens.Data.lensSettings.LensType);
     }
 
     private void ApplyCurrentLensSettings()

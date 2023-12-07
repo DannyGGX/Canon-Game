@@ -328,6 +328,8 @@ MonoBehaviour:
   photographyCamera: {fileID: 7056345854557134126}
   startingLenses:
   - {fileID: 2285583912368202027, guid: 87aa406e45b865c4092175b622203756, type: 3}
+  - {fileID: -4625699173341984068, guid: 533fbde2c9ed7474da634c879d434c4c, type: 3}
+  lensUI: {fileID: 0}
 --- !u!114 &1838293196132043984
 MonoBehaviour:
   m_ObjectHideFlags: 0
