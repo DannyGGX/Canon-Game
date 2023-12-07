@@ -6,11 +6,12 @@ using UnityEngine;
 public class LensController : MonoBehaviour
 {
     [SerializeField, Tooltip("Empty gameObject to show where to place lenses")] 
-    private GameObject lensPoint;
+    private Transform lensPoint;
     [SerializeField] private Camera photographyCamera;
     [SerializeField] private List<Lens> startingLenses;
 
     public Node<Lens> currentLens { get; private set; }
+    private Lens currentLensPrefab;
     private CustomLinkedList<Lens> lensSelection;
 
     private void Awake()
@@ -37,6 +38,7 @@ public class LensController : MonoBehaviour
         }
 
         currentLens = lensSelection.Head;
+        currentLensPrefab = Instantiate(currentLens.Data, lensPoint.position, lensPoint.rotation, lensPoint);
         ApplyCurrentLensSettings();
         
         // Clear memory
@@ -56,9 +58,8 @@ public class LensController : MonoBehaviour
 
     private void ApplyCurrentLensSettings()
     {
+        currentLensPrefab = currentLens.Data;
         LensSO lensSettings = currentLens.Data.lensSettings;
-
-        lensPoint = currentLens.Data.gameObject;
         photographyCamera.fieldOfView = lensSettings.FieldOfView;
     }
 }

@@ -172,7 +172,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -213,6 +213,8 @@ GameObject:
   - component: {fileID: 3706666503713225286}
   - component: {fileID: 6093382247367877991}
   - component: {fileID: 1838293196132043984}
+  - component: {fileID: 6912384929694658527}
+  - component: {fileID: 6797953590659256761}
   m_Layer: 0
   m_Name: Camera Model
   m_TagString: Untagged
@@ -338,6 +340,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photographyCamera: {fileID: 7056345854557134126}
+--- !u!114 &6912384929694658527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305165730740131109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1185bc9f7422b5743980d5598df961a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photographyCamera: {fileID: 7056345854557134126}
+  objectiveLayers:
+    serializedVersion: 2
+    m_Bits: 384
+  lensController: {fileID: 6093382247367877991}
+--- !u!114 &6797953590659256761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305165730740131109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856fee1944a440940bcd6f3fe9884b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderTexture: {fileID: 8400000, guid: 5759d88d5a1c0d743bf0f4d5a2a7e8c2, type: 2}
+  photographyCamera: {fileID: 7056345854557134126}
 --- !u!1 &4676410396749087900
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,14 +435,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 400
   field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 471
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 5759d88d5a1c0d743bf0f4d5a2a7e8c2, type: 2}
   m_TargetDisplay: 0
@@ -447,8 +480,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0.503}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.83, y: 2.83, z: 2.1365561}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8348282982547660625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -724,7 +757,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.51}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.94, y: 0.6862, z: 0.94}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8348282982547660625}
