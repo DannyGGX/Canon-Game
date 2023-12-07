@@ -9,10 +9,10 @@ using UnityEngine;
 /// </summary>
 public static class EventManager
 {
-
     public static Event OnAimCamera { get; } = new();
     public static Event OnLowerCamera { get; } = new();
     public static Event OnTakePhoto { get; } = new();
-
     public static Event<bool> OnChangeLens { get; } = new(); // bool: ScrollUp
+    public static Event<Objective> OnCompletedObjective { get; } = new();
+    public static Event<bool> OnObjectivesListOpen { get; } = new();
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ObjectivesManager : MonoBehaviour
@@ -20,9 +21,22 @@ public class ObjectivesManager : MonoBehaviour
         {
             Instance = this;
         }
+        
+        // Make IncompleteObjectives a copy of Objectives so that it doesn't Remove elements from Objectives.
+        Objective[] incompleteObjectives = new Objective[Objectives.Count];
+        Objectives.CopyTo(incompleteObjectives);
+        IncompleteObjectives = incompleteObjectives.ToList();
 
-        IncompleteObjectives = Objectives;
+        EventManager.OnCompletedObjective.Subscribe(ObjectiveCompleted);
     }
-    
-    
+
+    private void OnDisable()
+    {
+        EventManager.OnCompletedObjective.Unsubscribe(ObjectiveCompleted);
+    }
+
+    private void ObjectiveCompleted(Objective objective)
+    {
+        IncompleteObjectives.Remove(objective);
+    }
 }

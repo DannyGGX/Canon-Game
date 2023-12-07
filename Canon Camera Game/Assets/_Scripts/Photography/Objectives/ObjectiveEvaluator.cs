@@ -42,7 +42,8 @@ public class ObjectiveEvaluator : MonoBehaviour
         
         foreach (var objective in completedObjectives)
         {
-            ObjectivesManager.Instance.IncompleteObjectives.Remove(objective);
+            EventManager.OnCompletedObjective.Invoke(objective);
+            //ObjectivesManager.Instance.IncompleteObjectives.Remove(objective);
         }
     }
 
