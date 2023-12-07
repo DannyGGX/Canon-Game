@@ -7,10 +7,13 @@ public class LensSO : ScriptableObject
 {
     public LensTypes LensType;
     [Range(1, 160)] public float FieldOfView = 60;
+    public Vector2 sensorSize;
 }
 
 public enum LensTypes
 {
     NormalLens,
-    SphereLens
+    SphereLens,
+    TelephotoLens,
+    WideAngleLens
 }

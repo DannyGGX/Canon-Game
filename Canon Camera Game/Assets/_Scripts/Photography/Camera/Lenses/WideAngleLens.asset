@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d456ae40f9b815c4a89a3080e364b3aa, type: 3}
+  m_Name: WideAngleLens
+  m_EditorClassIdentifier: 
+  LensType: 3
+  FieldOfView: 160
+  sensorSize: {x: 52.476, y: 23.012}

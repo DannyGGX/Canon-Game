@@ -63,5 +63,6 @@ public class LensController : MonoBehaviour
         currentLensPrefab = Instantiate(currentLens.Data, lensPoint.position, lensPoint.rotation, lensPoint);
         LensSO lensSettings = currentLens.Data.lensSettings;
         photographyCamera.fieldOfView = lensSettings.FieldOfView;
+        photographyCamera.sensorSize = lensSettings.sensorSize;
     }
 }

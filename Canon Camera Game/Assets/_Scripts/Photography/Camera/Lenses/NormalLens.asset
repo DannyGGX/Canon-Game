@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: NormalLens
   m_EditorClassIdentifier: 
   LensType: 0
-  FieldOfView: 45
+  FieldOfView: 60
+  sensorSize: {x: 36, y: 24}
