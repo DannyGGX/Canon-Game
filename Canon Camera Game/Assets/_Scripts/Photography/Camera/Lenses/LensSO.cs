@@ -11,5 +11,6 @@ public class LensSO : ScriptableObject
 
 public enum LensTypes
 {
-    NormalLens
+    NormalLens,
+    SphereLens
 }

@@ -159,7 +159,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -1099,6 +1099,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6093382247367877991, guid: 6c06a67c9c0c16b4db0b154aaba6ba56, type: 3}
+      propertyPath: startingLenses.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093382247367877991, guid: 6c06a67c9c0c16b4db0b154aaba6ba56, type: 3}
+      propertyPath: startingLenses.Array.data[1]
+      value: 
+      objectReference: {fileID: -4625699173341984068, guid: 533fbde2c9ed7474da634c879d434c4c, type: 3}
     - target: {fileID: 6103860550174746137, guid: 6c06a67c9c0c16b4db0b154aaba6ba56, type: 3}
       propertyPath: m_Name
       value: Player

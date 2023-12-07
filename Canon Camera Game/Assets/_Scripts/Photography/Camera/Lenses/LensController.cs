@@ -38,7 +38,7 @@ public class LensController : MonoBehaviour
         }
 
         currentLens = lensSelection.Head;
-        currentLensPrefab = Instantiate(currentLens.Data, lensPoint.position, lensPoint.rotation, lensPoint);
+        
         ApplyCurrentLensSettings();
         
         // Clear memory
@@ -58,7 +58,9 @@ public class LensController : MonoBehaviour
 
     private void ApplyCurrentLensSettings()
     {
-        currentLensPrefab = currentLens.Data;
+        if (lensPoint.childCount > 0)
+            Destroy(lensPoint.GetChild(0).gameObject);
+        currentLensPrefab = Instantiate(currentLens.Data, lensPoint.position, lensPoint.rotation, lensPoint);
         LensSO lensSettings = currentLens.Data.lensSettings;
         photographyCamera.fieldOfView = lensSettings.FieldOfView;
     }
