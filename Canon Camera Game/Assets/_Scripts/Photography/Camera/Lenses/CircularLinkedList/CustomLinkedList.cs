@@ -30,6 +30,7 @@ public class CustomLinkedList<T>
         Length++;
         
         Last.NextNode = Head; // Circular
+        Head.PreviousNode = Last; // Circular double link
     }
     private bool IsLinkedListEmpty() => Head == null;
 
