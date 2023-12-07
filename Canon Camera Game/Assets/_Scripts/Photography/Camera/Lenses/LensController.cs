@@ -47,7 +47,7 @@ public class LensController : MonoBehaviour
     }
     private void ChangeLens(bool scrollUp)
     {
-        if (lensSelection.Length < 1) return;
+        if (lensSelection.Length == 1) return;
         
         if (scrollUp)
             currentLens = currentLens.NextNode;
