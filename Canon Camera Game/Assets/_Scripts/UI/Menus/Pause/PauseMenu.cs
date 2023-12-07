@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject menuObject;
+    [SerializeField, Tooltip("Make sure to have pause menu display over all other UI objects by having it lower down in the child object hierarchy on the canvas.")] 
+    private GameObject menuObject;
 
     private void Awake()
     {
@@ -34,12 +35,24 @@ public class PauseMenu : MonoBehaviour
     {
         menuObject.SetActive(true);
         PauseManager.Instance.SetPauseState(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
     {
         menuObject.SetActive(false);
         PauseManager.Instance.SetPauseState(false);
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void RestartLevel()
+    {
+        PauseManager.Instance.SetPauseState(false);
+        SceneManagerScript.Instance.RestartScene();
     }
 
     public void GoToMainMenu()

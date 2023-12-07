@@ -19,10 +19,8 @@ public class PlayerRotation2 : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main; // Cache camera so that the main camera only needs to be found once.
-#if UNITY_STANDALONE
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-#endif
     }
 
     private void Update()

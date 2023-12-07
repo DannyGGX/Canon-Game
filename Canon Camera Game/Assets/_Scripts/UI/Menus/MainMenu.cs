@@ -35,21 +35,6 @@ public class MainMenu : MonoBehaviour
         RacingGameModesScreen.SetActive(true);
     }
 
-    public void StartCheckpointDialogue()
-    {
-        SceneManagerScript.Instance.LoadScene(Scenes.Checkpoint_Dialogue);
-    }
-
-    public void StartBeginnerDialogue()
-    {
-        SceneManagerScript.Instance.LoadScene(Scenes.Beginner_Dialogue);
-    }
-
-    public void StartAdvancedDialogue()
-    {
-        SceneManagerScript.Instance.LoadScene(Scenes.Advanced_Dialogue);
-    }
-
     public void QuitGame()
     {
         Application.Quit();
